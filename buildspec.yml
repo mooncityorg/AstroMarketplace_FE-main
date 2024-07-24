@@ -1,0 +1,22 @@
+version: 0.1
+
+env:
+  variables:
+    NODE_ENV: "production"
+
+phases:
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies...
+      #Moverse al folder de App e instalar NPM
+      - npm install
+  build:
+    commands:
+      - echo Build started on `date`
+      #Se cambia al folder App y se usa el comando build
+      - npm run build
+artifacts:
+#Uso de artifacts
+  files:
+    - '**/*'
+  base-directory: dist
